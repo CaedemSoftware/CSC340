@@ -38,6 +38,7 @@ public class assignment2Driver {
                 keywordCount++;
             }
             for (String array : word.getSpeech().getArray()) {
+                //definitions are stored in arrays
                 definitionCount++;
             }
             if (!speechList.contains(word.getSpeech().getPartOfSpeech())) {
@@ -50,14 +51,12 @@ public class assignment2Driver {
                 + "===== DICTIONARY 340 JAVA =====\n"
                 + "----- Keywords: " + keywordCount + "\n"
                 + "----- Definitions: " + definitionCount);
-        //searchKey is referenced outside of while loop
-        String searchKey;
         //searchCount does not reset
-        int searchCount = 15;
+        int searchCount = 1;
         while (true) {
+            String searchKey;
             String[] inputArr;
             int inputCount = 0;
-            String input2, input3, input4;
             //BoolStorage keeps the booleans referenced in the check[Keyword] methods
             BoolStorage bool = new BoolStorage(false, false);
             Scanner input = new Scanner(System.in);
@@ -67,8 +66,6 @@ public class assignment2Driver {
             String partOfSpeech = "";
             if (testEmpty.isBlank()) {//if input has no char
                 searchKey = "!help";
-            } else if (!testEmpty.contains(" ")) {//if input is one word
-                searchKey = testEmpty;
             } else {//standard case
                 inputArr = testEmpty.split(" ");
                 searchKey = inputArr[inputCount];
@@ -79,6 +76,14 @@ public class assignment2Driver {
                     inputArr = tempArray;
                     searchKey = inputArr[inputCount];
                 }
+                //casing for multimap key
+                searchKey = Character.toString(searchKey.charAt(0)).toUpperCase()
+                        + searchKey.substring(1);
+                //check for quit before unnecessary processes
+                if (searchKey.equals("!q") || searchKey.equals("Quit")
+                        || searchKey.equals("!quit")) {
+                    break;//end while loop
+                }
                 //subtract once instead of three times
                 int arrSize = inputArr.length - 1;
                 if (arrSize >= 4) {//more than 4 keywords
@@ -88,34 +93,26 @@ public class assignment2Driver {
                 }
                 if (inputCount < arrSize) {//2 keywords
                     inputCount++;
-                    input2 = inputArr[inputCount];
                     //partOfSpeech -> distinct -> reverse
-                    partOfSpeech = checkSpeech(input2, speechList, bool);
+                    partOfSpeech = checkSpeech(inputArr[inputCount], speechList, bool);
                 }
                 if (inputCount < arrSize) {//3 keywords
                     inputCount++;
-                    input3 = inputArr[inputCount];
                     //distinct -> reverse
-                    bool.setDistinct(checkDistinct(input3, bool, 0));
+                    bool.setDistinct(checkDistinct(inputArr[inputCount], bool, 0));
                 }
                 if (inputCount < arrSize) {//4 keywords
                     inputCount++;
-                    input4 = inputArr[inputCount];
                     //reverse
-                    bool.setReverse(checkReverse(input4, bool, 0));
+                    bool.setReverse(checkReverse(inputArr[inputCount], bool, 0));
                 }
-            }
-            searchKey = Character.toString(searchKey.charAt(0)).toUpperCase()
-                    + searchKey.substring(1);
-            if (searchKey.equals("!q") || searchKey.equals("Quit")
-                        || searchKey.equals("!quit")) {
-                    break;//end while loop
-                }
-            //ignore casing end
+            }//end standard case
+            //boolean in case key is in multimap but no associated entry
             boolean found = false;
-            if (dictionaryGG.containsKey(searchKey)) {
+            if (dictionaryGG.containsKey(searchKey)) {//check multimap keys
                 System.out.println(String.format("%4s", "|"));
                 Iterator<Speech> it = dictionaryGG.get(searchKey).iterator();
+                //stack for reverse function, had to be before while
                 Stack reverseStack = new Stack();
                 while (it.hasNext()) {
                     Speech word = it.next();
@@ -134,7 +131,7 @@ public class assignment2Driver {
                                 continue;//skips repeated definitions
                             }
                         }
-                        temp = def;
+                        temp = def;//store last definition
                         if (!bool.getReverse()) {
                             System.out.println(out);
                         }
