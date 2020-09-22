@@ -79,33 +79,33 @@ enum Entry {
     Nvidia1("Nvidia", new Speech("GPU", new String[]{
         "Jensen's Leather Jacket",
         "Team Green",
-        "Ampere"})),//45
+        "Ampere"})),
     Intel1("Intel", new Speech("CPU", new String[]{
-        "Team Blue",
-        "Tiger Lake"})),//48
+        "Team Blue",//45
+        "Tiger Lake"})),
     Amd1("Amd", new Speech("CPU", new String[]{
         "Zen 3",
-        "Lisa Su"})),//51
+        "Lisa Su"})),
     Apple1("Apple", new Speech("Big Tech", new String[]{
-        "Tim Apple",
+        "Tim Apple",//48
         "Think Different"})),
     Google1("Google", new Speech("Big Tech", new String[]{
-        "Don't be evil",//54
+        "Don't be evil",//51
         "A search engine"})),
     Huang1("Huang", new Speech("Person", new String[]{
-        "grader"})),//57
+        "grader"})),
     Ta1("Ta", new Speech("Person", new String[]{
-        "lecturer"})),
+        "lecturer"})),//54
     PartA1("Part A", new Speech("noun", new String[]{
         "the first in the list"})),
     Mulan1("Mulan", new Speech("noun", new String[]{
-        "a movie "})),//60
+        "a movie "})),
     Cdpr1("Cdpr", new Speech("noun", new String[]{
-        "video game developer"})),
+        "video game developer"})),//57
     Java1("Java", new Speech("noun", new String[]{
         "a programming language"})),
     Cpp1("Cpp", new Speech("noun", new String[]{
-        "a programming language"})),
+        "a programming language"})),//60
     Golang1("Golang", new Speech("noun", new String[]{
         "a programming language"})),;//enum objects end
     private String key;
