@@ -47,10 +47,10 @@ public class assignment2Driver {
             }
         }
         //done with data source(enum)
-        System.out.println("! Loading completed...\n"
+        System.out.println("! Loading completed...\n\n"
                 + "===== DICTIONARY 340 JAVA =====\n"
                 + "----- Keywords: " + keywordCount + "\n"
-                + "----- Definitions: " + definitionCount);
+                + "----- Definitions: " + definitionCount + "\n");
         //searchCount does not reset
         int searchCount = 1;
         while (true) {

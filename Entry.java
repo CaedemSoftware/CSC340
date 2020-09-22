@@ -75,50 +75,33 @@ enum Entry {
     Radeon1("Radeon", new Speech("GPU", new String[]{
         "Team Red",
         "Big Navi",
-        "RDNA 2"})),
+        "RDNA 2"})),//42
     Nvidia1("Nvidia", new Speech("GPU", new String[]{
         "Jensen's Leather Jacket",
         "Team Green",
-        "Ampere"})),
+        "Ampere"})),//45
     Intel1("Intel", new Speech("CPU", new String[]{
         "Team Blue",
-        "14nm+++++++++",
-        "Our Comptetitor, the Ryzen 4800U",
-        "Tiger Lake"})),
+        "Tiger Lake"})),//48
     Amd1("Amd", new Speech("CPU", new String[]{
-        "Team Red",
-        "Zen 2",
-        "Lisa Su"})),
+        "Zen 3",
+        "Lisa Su"})),//51
     Apple1("Apple", new Speech("Big Tech", new String[]{
-        "Multi-Trillion Dollar Company",
-        "Every Jobs needs their Woz",
-        "The exact opposite of a value brand",
         "Tim Apple",
-        "iProductName",
         "Think Different"})),
     Google1("Google", new Speech("Big Tech", new String[]{
-        "Don't be evil",
-        "Sergei Brin",
-        "Larry Page",
-        "Sundar Pichai",
-        "A search engine",
-        "The android developer"})),
+        "Don't be evil",//54
+        "A search engine"})),
     Huang1("Huang", new Speech("Person", new String[]{
-        "grader"})),
+        "grader"})),//57
     Ta1("Ta", new Speech("Person", new String[]{
-        "lecturer",
-        "cornerstone of the CS department"})),
+        "lecturer"})),
     PartA1("Part A", new Speech("noun", new String[]{
-        "the first in the list",
-        "write five pages",
-        "takes a long time"})),
+        "the first in the list"})),
     Mulan1("Mulan", new Speech("noun", new String[]{
-        "a movie ",
-        "a remake by Disney of the animated version"})),
+        "a movie "})),//60
     Cdpr1("Cdpr", new Speech("noun", new String[]{
-        "video game developer",
-        "made Witcher 3",
-        "making Cyberpunk 2077"})),
+        "video game developer"})),
     Java1("Java", new Speech("noun", new String[]{
         "a programming language"})),
     Cpp1("Cpp", new Speech("noun", new String[]{
